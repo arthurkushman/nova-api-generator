@@ -10777,7 +10777,7 @@ exports = module.exports = __webpack_require__(6)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n/* Scoped Styles */\n.field {\n    margin: 20px;\n    color: #fff;\n}\n.fields_container {\n    border: #1b4b72 1px solid;\n}\n.entity_params {\n    border: #2a9055 1px solid;\n}\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n/* Scoped Styles */\n.field {\n    margin: 20px;\n    color: #fff;\n}\n.fields_container {\n    border: #1b4b72 1px solid;\n}\n.entity_params {\n    border: #2a9055 1px solid;\n}\n.btn {\n    padding: 5px 10px;\n    border-radius: 3px;\n}\n", ""]);
 
 // exports
 
@@ -11284,16 +11284,25 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     mounted: function mounted() {},
 
     data: function data() {
-        return { params: [] };
+        return { params: [], entities: [] };
     },
     methods: {
         addParam: function addParam(event) {
             this.params.push('<div class="field param" ref="param"><span>Parameter:</span><span><input type="text" name="param"/></span></div>');
+        },
+        addEntity: function addEntity() {
+            this.entities.push('<div ref="entity"><div class="field entity"><span>Entity name:</span><span><input type="text" name="entity[]"/></span></div><div class="entity_params"><div class="field param" ref="param"><span>Parameter:</span><span><input type="text" name="param"/></span></div><div v-for="param in params" v-html="param">{{ param }}</div></div><div class="field" v-on:click="addParam"><button type="button" class="btn btn-primary">+</button></div></div>');
         }
     }
 });
@@ -11328,64 +11337,97 @@ var render = function() {
             },
             [
               _c("div", { staticClass: "container" }, [
-                _c("div", { staticClass: "fields_container" }, [
-                  _c("div", { ref: "entity" }, [
-                    _c("div", { staticClass: "field entity" }, [
-                      _c("span", [
-                        _vm._v(
-                          "\n                                Entity name:\n                            "
-                        )
+                _c(
+                  "div",
+                  { staticClass: "fields_container" },
+                  [
+                    _c("div", { ref: "entity" }, [
+                      _c("div", { staticClass: "field entity" }, [
+                        _c("span", [
+                          _vm._v(
+                            "\n                                Entity name:\n                            "
+                          )
+                        ]),
+                        _vm._v(" "),
+                        _c("span", [
+                          _c("input", {
+                            attrs: { type: "text", name: "entity[]" }
+                          })
+                        ])
                       ]),
                       _vm._v(" "),
-                      _c("span", [
-                        _c("input", {
-                          attrs: { type: "text", name: "entity[]" }
-                        })
-                      ])
+                      _c(
+                        "div",
+                        { staticClass: "entity_params" },
+                        [
+                          _c(
+                            "div",
+                            { ref: "param", staticClass: "field param" },
+                            [
+                              _c("span", [
+                                _vm._v(
+                                  "\n                                    Parameter:\n                                "
+                                )
+                              ]),
+                              _vm._v(" "),
+                              _c("span", [
+                                _c("input", {
+                                  attrs: { type: "text", name: "param" }
+                                })
+                              ])
+                            ]
+                          ),
+                          _vm._v(" "),
+                          _vm._l(_vm.params, function(param) {
+                            return _c(
+                              "div",
+                              { domProps: { innerHTML: _vm._s(param) } },
+                              [
+                                _vm._v(
+                                  "\n                                " +
+                                    _vm._s(param) +
+                                    "\n                            "
+                                )
+                              ]
+                            )
+                          })
+                        ],
+                        2
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "div",
+                        { staticClass: "field", on: { click: _vm.addParam } },
+                        [
+                          _c(
+                            "button",
+                            {
+                              staticClass: "btn btn-primary",
+                              attrs: { type: "button" }
+                            },
+                            [_vm._v("+")]
+                          )
+                        ]
+                      )
                     ]),
                     _vm._v(" "),
-                    _c(
-                      "div",
-                      { staticClass: "entity_params" },
-                      [
-                        _c(
-                          "div",
-                          { ref: "param", staticClass: "field param" },
-                          [
-                            _c("span", [
-                              _vm._v(
-                                "\n                                    Parameter:\n                                "
-                              )
-                            ]),
-                            _vm._v(" "),
-                            _c("span", [
-                              _c("input", {
-                                attrs: { type: "text", name: "param" }
-                              })
-                            ])
-                          ]
-                        ),
-                        _vm._v(" "),
-                        _vm._l(_vm.params, function(param) {
-                          return _c(
-                            "div",
-                            { domProps: { innerHTML: _vm._s(param) } },
-                            [
-                              _vm._v(
-                                "\n                                " +
-                                  _vm._s(param) +
-                                  "\n                            "
-                              )
-                            ]
+                    _vm._l(_vm.entities, function(entity) {
+                      return _c(
+                        "div",
+                        { domProps: { innerHTML: _vm._s(entity) } },
+                        [
+                          _vm._v(
+                            "\n                        " +
+                              _vm._s(entity) +
+                              "\n                    "
                           )
-                        })
-                      ],
-                      2
-                    ),
+                        ]
+                      )
+                    }),
                     _vm._v(" "),
                     _c(
                       "div",
-                      { staticClass: "field", on: { click: _vm.addParam } },
+                      { staticClass: "field", on: { click: _vm.addEntity } },
                       [
                         _c(
                           "button",
@@ -11393,12 +11435,13 @@ var render = function() {
                             staticClass: "btn btn-primary",
                             attrs: { type: "button" }
                           },
-                          [_vm._v("Add parameter")]
+                          [_vm._v("+")]
                         )
                       ]
                     )
-                  ])
-                ]),
+                  ],
+                  2
+                ),
                 _vm._v(" "),
                 _c("div", [
                   _c("input", { attrs: { type: "submit", value: "Save" } })

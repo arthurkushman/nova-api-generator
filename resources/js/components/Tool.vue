@@ -29,8 +29,14 @@
                                 </div>
                             </div>
                             <div class="field" v-on:click="addParam">
-                                <button type="button" class="btn btn-primary">Add parameter</button>
+                                <button type="button" class="btn btn-primary">+</button>
                             </div>
+                        </div>
+                        <div v-for="entity in entities" v-html="entity">
+                            {{ entity }}
+                        </div>
+                        <div class="field" v-on:click="addEntity">
+                            <button type="button" class="btn btn-primary">+</button>
                         </div>
                     </div>
                     <div>
@@ -48,11 +54,15 @@
 
         },
         data: function() {
-            return {params: []}
+            return {params: [], entities: []}
         },
         methods: {
             addParam: function(event) {
-                this.params.push('<div class="field param" ref="param"><span>Parameter:</span><span><input type="text" name="param"/></span></div>');
+                this.params.push(
+                    '<div class="field param" ref="param"><span>Parameter:</span><span><input type="text" name="param"/></span></div>')
+            },
+            addEntity: function() {
+                this.entities.push('<div ref="entity"><div class="field entity"><span>Entity name:</span><span><input type="text" name="entity[]"/></span></div><div class="entity_params"><div class="field param" ref="param"><span>Parameter:</span><span><input type="text" name="param"/></span></div><div v-for="param in params" v-html="param">{{ param }}</div></div><div class="field" v-on:click="addParam"><button type="button" class="btn btn-primary">+</button></div></div>')
             }
         }
     }
@@ -71,5 +81,10 @@
 
     .entity_params {
         border: #2a9055 1px solid;
+    }
+
+    .btn {
+        padding: 5px 10px;
+        border-radius: 3px;
     }
 </style>
