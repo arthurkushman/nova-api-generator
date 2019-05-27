@@ -59,10 +59,10 @@
         methods: {
             addParam: function(event) {
                 this.params.push(
-                    '<div class="field param" ref="param"><span>Parameter:</span><span><input type="text" name="param"/></span></div>')
+                    '<div class="field param" ref="param"><span>Parameter: </span><span><input type="text" name="param"/></span></div>')
             },
             addEntity: function() {
-                this.entities.push('<div ref="entity"><div class="field entity"><span>Entity name:</span><span><input type="text" name="entity[]"/></span></div><div class="entity_params"><div class="field param" ref="param"><span>Parameter:</span><span><input type="text" name="param"/></span></div><div v-for="param in params" v-html="param">{{ param }}</div></div><div class="field" v-on:click="addParam"><button type="button" class="btn btn-primary">+</button></div></div>')
+                this.entities.push('<div ref="entity"><div class="field entity"><span>Entity name: </span><span><input type="text" name="entity[]"/></span></div><div class="entity_params"><div class="field param" ref="param"><span>Parameter:</span><span><input type="text" name="param"/></span></div><div v-for="param in params" v-html="param">{{ param }}</div></div><div class="field" v-on:click="addParam"><button type="button" class="btn btn-primary">+</button></div></div>')
             }
         }
     }
