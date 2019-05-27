@@ -1,6 +1,6 @@
 <template>
     <div>
-        <heading class="mb-6">Nova Api Generator</heading>
+        <heading class="mb-6">Api generator template creator</heading>
 
         <card class="bg-90 flex flex-col items-center justify-center" style="min-height: 300px">
             <form action="/nova-vendor/nova-api-generator/create" method="post">
