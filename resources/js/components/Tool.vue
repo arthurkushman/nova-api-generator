@@ -24,6 +24,9 @@
                                         <input type="text" name="param"/>
                                     </span>
                                 </div>
+                                <div v-for="param in params" v-html="param">
+                                    {{ param }}
+                                </div>
                             </div>
                             <div class="field" v-on:click="addParam">
                                 <button type="button" class="btn btn-primary">Add parameter</button>
@@ -42,19 +45,14 @@
 <script>
     export default {
         mounted() {
-            let entity = this.$refs.entity;
-            let param = this.$refs.param;
-            // console.log()
 
-            // $.ajaxSetup({
-            //     headers: {
-            //         'X-CSRF-Token': $('meta[name="csrf_token"]').attr('content')
-            //     }
-            // });
+        },
+        data: function() {
+            return {params: []}
         },
         methods: {
             addParam: function(event) {
-                console.log(123);
+                this.params.push('<div class="field param" ref="param"><span>Parameter:</span><span><input type="text" name="param"/></span></div>');
             }
         }
     }
@@ -66,9 +64,11 @@
         margin: 20px;
         color: #fff;
     }
+
     .fields_container {
         border: #1b4b72 1px solid;
     }
+
     .entity_params {
         border: #2a9055 1px solid;
     }

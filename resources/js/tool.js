@@ -1,3 +1,6 @@
+window.$ = require('jquery')
+window.JQuery = require('jquery')
+
 Nova.booting((Vue, router, store) => {
     router.addRoutes([
         {
