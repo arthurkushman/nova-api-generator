@@ -169,7 +169,7 @@ exports = module.exports = __webpack_require__(5)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n/* Scoped Styles */\n.field {\n    margin: 20px;\n    color: #fff;\n}\n.fields_container {\n    border: #1b4b72 1px solid;\n}\n.entity_params {\n    border: #2a9055 1px solid;\n}\n.btn {\n    padding: 5px 10px;\n    border-radius: 3px;\n}\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n/* Scoped Styles */\n.field {\n    margin: 20px;\n    color: #fff;\n}\n.fields_container {\n    border: #1b4b72 1px solid;\n}\n.entity_params {\n    border: #2a9055 1px solid;\n}\n.btn {\n    padding: 5px 10px;\n    border-radius: 3px;\n}\n", ""]);
 
 // exports
 
@@ -695,6 +695,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         },
         addEntity: function addEntity() {
             this.entities.push('<div ref="entity"><div class="field entity"><span>Entity name: </span><span><input type="text" name="entity[]"/></span></div><div class="entity_params"><div class="field param" ref="param"><span>Parameter:</span><span><input type="text" name="param"/></span></div><div v-for="param in params" v-html="param">{{ param }}</div></div><div class="field" v-on:click="addParam"><button type="button" class="btn btn-primary">+</button></div></div>');
+            this.$forceUpdate();
         }
     }
 });
@@ -805,10 +806,10 @@ var render = function() {
                       )
                     ]),
                     _vm._v(" "),
-                    _vm._l(_vm.entities, function(entity) {
+                    _vm._l(_vm.entities, function(entity, index) {
                       return _c(
                         "div",
-                        { domProps: { innerHTML: _vm._s(entity) } },
+                        { key: index, domProps: { innerHTML: _vm._s(entity) } },
                         [
                           _vm._v(
                             "\n                        " +
